@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Onest } from "next/font/google";
 import "./globals.css";
+import { NextUIProvider } from "@nextui-org/react";
+// import { NextUIProvider } from '../lib/next-ui';
 
-const inter = Inter({ subsets: ["latin"] });
+const onest = Onest({
+  subsets: ["latin"],
+  variable: "--font-onest",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={onest.className}>
+        <NextUIProvider>
+        {children}
+        </NextUIProvider>
+        </body>
     </html>
   );
 }
