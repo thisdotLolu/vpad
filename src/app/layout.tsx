@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Onest } from "next/font/google";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
+import { GlobalContextProvider } from "@/contexts/GlobalContext";
 // import { NextUIProvider } from '../lib/next-ui';
 
 const onest = Onest({
@@ -23,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={onest.className}>
         <NextUIProvider>
-        {children}
+          <GlobalContextProvider>{children}</GlobalContextProvider>
         </NextUIProvider>
         </body>
     </html>
